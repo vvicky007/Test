@@ -7,12 +7,13 @@ function Home() {
   const [drinks,setDrinks] = useState([])
  
   const onchangeHandler = (val)=>{
+    console.log('dadw')
     setSearchVal(val)
   }
 
   useEffect(async ()=>{
     const data = await getAllDrinks(searchVal)
-    setDrinks(()=>data.drinks)
+    setDrinks(()=>data.drinks||[])
     },
     [searchVal])
   return (
